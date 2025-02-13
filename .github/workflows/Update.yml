@@ -1,10 +1,9 @@
 name: Update
 
 on:
-#  workflow_dispatch
   schedule:
-    - cron: 0,30 * * * *
-  workflow_dispatch: # 允許手動觸發
+    - cron: '0,30 * * * *'
+  workflow_dispatch:
 
 env:
   TZ: Asia/Shanghai
@@ -14,20 +13,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Set up Go # 设置Go环境
+    - name: Set up Go
       uses: actions/setup-go@v1
       with:
-        go-version: '^1.19' # 指定所需的Go版本
+        go-version: '1.19'
 
-
-
-    
     - name: Checkout
       uses: actions/checkout@v3
 
     - name: GetTime
       id: date
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M:%S CST')"
+      run: echo "date=$(date +'%Y-%m-%d %H:%M:%S CST')" >> $GITHUB_OUTPUT
 
     - name: Update
       run: |
@@ -55,11 +51,9 @@ jobs:
         sed -i 's/AdultIPTV.net //g' Adult.m3u
         wget https://met.pages.dev/static/iptv/av.m3u -O Adult1.m3u
         wget https://raw.githubusercontent.com/hfpiao/IPTV/refs/heads/main/Adult.m3u -O Adult2.m3u
-        #wget http://adultiptv.net/videos.m3u8 -O Adult3.m3u #檔案太大
         wget https://raw.githubusercontent.com/yyqyu/mytv/refs/heads/main/Adult.m3u -O Adult4.m3u
         cat Adult1.m3u >> Adult.m3u
         cat Adult2.m3u >> Adult.m3u
-        #cat Adult3.m3u >> Adult.m3u
         cat Adult4.m3u >> Adult.m3u
         rm -f Adult1.m3u Adult2.m3u Adult4.m3u
         sed -i '/^\s*$/d' Adult.m3u
@@ -102,8 +96,6 @@ jobs:
         cat CCTV.m3u >> IPTV.m3u
         cat CNTV.m3u >> IPTV.m3u
         cat GAT.m3u >> IPTV.m3u
-        # cat Adult.m3u >> IPTV.m3u
-        # 移除成人整合源
         sed -i '/#EXTM3U/d' IPTV.m3u
         sed -i '1i #EXTM3U' IPTV.m3u
         sed -i '/^\s*$/d' IPTV.m3u
@@ -127,11 +119,8 @@ jobs:
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git checkout --orphan latest_branch
         git add -A
         git commit -am "${{ steps.date.outputs.date }}"
-        git branch -D main
-        git branch -m main
 
     - name: Push
       run: git push -f origin main
