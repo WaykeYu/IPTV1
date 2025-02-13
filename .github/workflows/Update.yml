@@ -72,8 +72,8 @@ jobs:
         wget https://epg.pw/test_channels_taiwan.m3u -O GAT4.m3u && sed -i -n '/tvg-country="台灣"/{N;p;}' GAT4.m3u
         wget https://iptv-org.github.io/iptv/countries/tw.m3u -O GAT5.m3u
         wget https://raw.github.com/WaykeYu/IPTV1/tree/main/source/TW_allsource.m3u -O GAT6.m3u
-        wget https://raw.githubusercontent.com/iamfang2019/MyTV/refs/heads/main/TW_switch.m3u -O GAT7.m3u
-        wget https://raw.github.com/WaykeYu/IPTV1/tree/main/source/UBTV.m3u -O GAT8.m3u
+        wget https://raw.githubusercontent.com/WaykeYu/verify-iptv/refs/heads/main/source/TW_allsource.m3u -O GAT7.m3u
+        wget https://raw.githubusercontent.com/WaykeYu/verify-iptv/refs/heads/main/source/UBTV.m3u -O GAT8.m3u
         cat GAT1.m3u >> GAT.m3u
         cat GAT2.m3u >> GAT.m3u
         cat GAT3.m3u >> GAT.m3u
