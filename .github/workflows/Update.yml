@@ -52,7 +52,7 @@ jobs:
         wget https://met.pages.dev/static/iptv/av.m3u -O Adult1.m3u
         wget https://raw.githubusercontent.com/hfpiao/IPTV/refs/heads/main/Adult.m3u -O Adult2.m3u
         wget https://raw.githubusercontent.com/yyqyu/mytv/refs/heads/main/Adult.m3u -O Adult3.m3u
-        wget https://raw.githubusercontent.com/WaykeYu/MyTV_tw/refs/heads/main/UBTV18.m3u Adult4.m3u
+        wget https://raw.githubusercontent.com/WaykeYu/MyTV_tw/refs/heads/main/UBTV18.m3u -O Adult4.m3u
         cat Adult1.m3u >> Adult.m3u
         cat Adult2.m3u >> Adult.m3u
         cat Adult3.m3u >> Adult.m3u
