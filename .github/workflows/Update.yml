@@ -55,13 +55,13 @@ jobs:
         sed -i 's/AdultIPTV.net //g' Adult.m3u
         wget https://met.pages.dev/static/iptv/av.m3u -O Adult1.m3u
         wget https://raw.githubusercontent.com/hfpiao/IPTV/refs/heads/main/Adult.m3u -O Adult2.m3u
-        wget http://adultiptv.net/videos.m3u8 -O Adult3.m3u
+        #wget http://adultiptv.net/videos.m3u8 -O Adult3.m3u #檔案太大
         wget https://raw.githubusercontent.com/yyqyu/mytv/refs/heads/main/Adult.m3u -O Adult4.m3u
         cat Adult1.m3u >> Adult.m3u
         cat Adult2.m3u >> Adult.m3u
-        cat Adult3.m3u >> Adult.m3u
+        #cat Adult3.m3u >> Adult.m3u
         cat Adult4.m3u >> Adult.m3u
-        rm -f Adult1.m3u Adult2.m3u Adult3.m3u Adult4.m3u
+        rm -f Adult1.m3u Adult2.m3u Adult4.m3u
         sed -i '/^\s*$/d' Adult.m3u
 
         # 港澳台
