@@ -71,9 +71,9 @@ jobs:
         wget https://ghp.ci/https://raw.githubusercontent.com/yuanzl77/IPTV/main/live.m3u -O GAT3.m3u && sed -i -n '/港·澳·台/{N;p;}' GAT3.m3u
         wget https://epg.pw/test_channels_taiwan.m3u -O GAT4.m3u && sed -i -n '/tvg-country="台灣"/{N;p;}' GAT4.m3u
         wget https://iptv-org.github.io/iptv/countries/tw.m3u -O GAT5.m3u
-        wget https://raw.githubusercontent.com/WaykeYu/verify-iptv/refs/heads/main/TW_allsource.m3u -O GAT6.m3u
+        wget https://raw.github.com/WaykeYu/IPTV1/tree/main/source/TW_allsource.m3u -O GAT6.m3u
         wget https://raw.githubusercontent.com/iamfang2019/MyTV/refs/heads/main/TW_switch.m3u -O GAT7.m3u
-        
+        wget https://raw.github.com/WaykeYu/IPTV1/tree/main/source/UBTV.m3u -O GAT8.m3u
         cat GAT1.m3u >> GAT.m3u
         cat GAT2.m3u >> GAT.m3u
         cat GAT3.m3u >> GAT.m3u
@@ -81,7 +81,8 @@ jobs:
         cat GAT5.m3u >> GAT.m3u
         cat GAT6.m3u >> GAT.m3u
         cat GAT7.m3u >> GAT.m3u
-        rm -f GAT1.m3u GAT2.m3u GAT3.m3u GAT4.m3u GAT5.m3u GAT6.m3u GAT7.m3u
+        cat GAT8.m3u >> GAT.m3u
+        rm -f GAT1.m3u GAT2.m3u GAT3.m3u GAT4.m3u GAT5.m3u GAT6.m3u GAT7.m3u GAT8.m3u
         sed -i '1i #EXTM3U' GAT.m3u
         sed -i '/^\s*$/d' GAT.m3u
 
