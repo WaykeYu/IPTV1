@@ -113,7 +113,7 @@ jobs:
         # 节目源
         rm -f EPG.xml && wget https://epg.112114.xyz/pp.xml -O EPG.xml
         # readme.md
-        echo "Auto Update IPTV in ${{ steps.date.outputs.date }} " > README.md
+        echo "自動合併及更新IPTV源 in ${{ steps.date.outputs.date }} " > README.md
 
     - name: Clean
       run: |
