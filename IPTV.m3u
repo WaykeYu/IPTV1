@@ -342,7 +342,11 @@ http://120.198.95.220:9901/tsfile/live/1004_1.m3u8?key=txiptv
 #EXTINF:-1 tvg-name="翡翠台" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/翡翠台.png" group-title="🌊港·澳·台",翡翠台
 http://v2h.jdshipin.com:80/jade2/jade.stream/chunklist_w100.m3u8
 #EXTINF:-1 tvg-name="翡翠台" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/翡翠台.png" group-title="🌊港·澳·台",翡翠台
+http://148.135.34.95/mn.php?playurl=http://www.pelotas.org:8278/jade_twn/playlist.m3u8
+#EXTINF:-1 tvg-name="翡翠台" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/翡翠台.png" group-title="🌊港·澳·台",翡翠台
 http://kkk.jjjj.jiduo.me/api.php?n=tttt&id=0401&tk=2aca1ad9a849
+#EXTINF:-1 tvg-name="翡翠台" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/翡翠台.png" group-title="🌊港·澳·台",翡翠台
+http://120.198.101.106:9901/tsfile/live/1007_1.m3u8?key=txiptv
 #EXTINF:-1 tvg-name="翡翠台" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/翡翠台.png" group-title="🌊港·澳·台",翡翠台
 http://122.152.202.33/s/81a8a44f/index.m3u8?id=53
 #EXTINF:-1 tvg-name="翡翠台" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/翡翠台.png" group-title="🌊港·澳·台",翡翠台
@@ -351,12 +355,10 @@ rtmp://sy.ecoheze.com/live/gdfc
 rtmp://redmine.ziyanuav.com/live/gdfc
 #EXTINF:-1 tvg-name="翡翠台" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/翡翠台.png" group-title="🌊港·澳·台",翡翠台
 rtmp://patrol.psn.asia/live/gdfc
-#EXTINF:-1 tvg-name="翡翠台" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/翡翠台.png" group-title="🌊港·澳·台",翡翠台
-rtmp://szgasszyaxtgl.szius.com/live/gdfc
-#EXTINF:-1 tvg-name="翡翠台" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/翡翠台.png" group-title="🌊港·澳·台",翡翠台
-http://185.243.7.13:80/play/live.php?mac=00:1A:79:45:5E:9A&stream=941619&extension=ts&play_token=p2yEuU1aFS
 #EXTINF:-1 tvg-name="明珠台" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/明珠台.png" group-title="🌊港·澳·台",明珠台
 http://122.152.202.33/s/81a8a44f/index.m3u8?id=23
+#EXTINF:-1 tvg-name="明珠台" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/明珠台.png" group-title="🌊港·澳·台",明珠台
+http://120.198.101.106:9901/tsfile/live/1008_1.m3u8?key=txiptv
 #EXTINF:-1 tvg-name="凤凰中文" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰中文.png" group-title="🌊港·澳·台",凤凰中文
 https://cdn.iptv8k.top/dl/jrys.php?id=19&time=20240926215313&ip=111.229.253.40
 #EXTINF:-1 tvg-name="凤凰中文" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰中文.png" group-title="🌊港·澳·台",凤凰中文
@@ -364,19 +366,17 @@ http://122.117.71.103:8574/http/61.222.53.250:8078/hls/21/80/phoenixch.m3u8
 #EXTINF:-1 tvg-name="凤凰中文" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰中文.png" group-title="🌊港·澳·台",凤凰中文
 http://120.198.95.220:9901/tsfile/live/1036_1.m3u8?key=txiptv
 #EXTINF:-1 tvg-name="凤凰中文" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰中文.png" group-title="🌊港·澳·台",凤凰中文
-http://115.149.139.141:10000/tsfile/live/1001_1.m3u8?key=txiptv&playlive=0&authid=0
-#EXTINF:-1 tvg-name="凤凰中文" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰中文.png" group-title="🌊港·澳·台",凤凰中文
-http://76.5432123.xyz/fh.php?id=fhzw
-#EXTINF:-1 tvg-name="凤凰中文" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰中文.png" group-title="🌊港·澳·台",凤凰中文
 http://kkk.jjjj.jiduo.me/api.php?n=tttt&id=8654&tk=e503191f8e20
 #EXTINF:-1 tvg-name="凤凰中文" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰中文.png" group-title="🌊港·澳·台",凤凰中文
 http://ttkx.cc:1380/653哈哈/fh.php?id=fhzw
 #EXTINF:-1 tvg-name="凤凰中文" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰中文.png" group-title="🌊港·澳·台",凤凰中文
 http://211.101.234.24:866/aishang/sxg.php?id=fhws
 #EXTINF:-1 tvg-name="凤凰中文" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰中文.png" group-title="🌊港·澳·台",凤凰中文
+https://piccpndks.v.kcdnvip.com/audio/xianggangweishi_2.m3u8
+#EXTINF:-1 tvg-name="凤凰中文" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰中文.png" group-title="🌊港·澳·台",凤凰中文
 http://playtv-live.ifeng.com/live/06OLEGEGM4G_audio.m3u8
 #EXTINF:-1 tvg-name="凤凰中文" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰中文.png" group-title="🌊港·澳·台",凤凰中文
-https://piccpndks.v.kcdnvip.com/audio/xianggangweishi_2.m3u8
+http://183.237.95.108:9901/tsfile/live/1103_1.m3u8?key=txiptv&playlive=0&authid=0
 #EXTINF:-1 tvg-name="凤凰资讯" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰资讯.png" group-title="🌊港·澳·台",凤凰资讯
 http://122.117.71.103:8573/http/61.222.53.250:8078/hls/20/80/phoenixif.m3u8
 #EXTINF:-1 tvg-name="凤凰资讯" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰资讯.png" group-title="🌊港·澳·台",凤凰资讯
@@ -385,8 +385,6 @@ http://120.198.95.220:9901/tsfile/live/1037_1.m3u8?key=txiptv
 http://61.221.215.25:8800/hls/47/index.m3u8
 #EXTINF:-1 tvg-name="凤凰资讯" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰资讯.png" group-title="🌊港·澳·台",凤凰资讯
 http://zb.xmzb.xyz/123.php?id=⚽马上oppppp一凤凰资讯
-#EXTINF:-1 tvg-name="凤凰资讯" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰资讯.png" group-title="🌊港·澳·台",凤凰资讯
-http://76.5432123.xyz/fh.php?id=fhzx
 #EXTINF:-1 tvg-name="凤凰资讯" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰资讯.png" group-title="🌊港·澳·台",凤凰资讯
 http://218.202.220.2:5000/nn_live.ts?id=FHZX
 #EXTINF:-1 tvg-name="凤凰资讯" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰资讯.png" group-title="🌊港·澳·台",凤凰资讯
@@ -401,8 +399,6 @@ http://221.7.175.154:8445/tsfile/live/1021_1.m3u8?key=txiptv&playlive=1&authid=0
 https://cdn.iptv8k.top/dl/jrys.php?id=18&time=20240926215313&ip=111.229.253.40
 #EXTINF:-1 tvg-name="凤凰香港" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰香港.png" group-title="🌊港·澳·台",凤凰香港
 http://zb.xmzb.xyz/123.php?id=⚽马上oppppp一凤凰香港
-#EXTINF:-1 tvg-name="凤凰香港" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰香港.png" group-title="🌊港·澳·台",凤凰香港
-http://76.5432123.xyz/fh.php?id=fhhk
 #EXTINF:-1 tvg-name="凤凰香港" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰香港.png" group-title="🌊港·澳·台",凤凰香港
 http://zhibo.hkstv.tv/livestream/mutfysrq/playlist.m3u8?wsSession=e5b4ef626c5980be2fbdf2e7-158332927312639&amp;wsIPSercert=6f8d45434604e7d22f5b0abbc0231d01&amp;wsMonitor=0
 #EXTINF:-1 tvg-name="凤凰香港" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰香港.png" group-title="🌊港·澳·台",凤凰香港
@@ -422,9 +418,11 @@ http://zhibo.hkstv.tv/livestream/mutfysrq/playlist.m3u8?wsSession=3c732f93c14e1b
 #EXTINF:-1 tvg-name="凤凰卫视" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰卫视.png" group-title="🌊港·澳·台",凤凰卫视
 https://zhibo.hkstv.tv/livestream/mutfysrq/playlist.m3u8?wsSession=3c732f93c14e1bc0c07641df-156388849014752&amp;amp;wsIPSercert=8de23d0849e78e3b16ec92a2092354
 #EXTINF:-1 tvg-name="凤凰卫视" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰卫视.png" group-title="🌊港·澳·台",凤凰卫视
-http://122.152.202.33/s/81a8a44f/index.m3u8?id=15
+http://120.198.101.106:9901/tsfile/live/1062_1.m3u8?key=txiptv
 #EXTINF:-1 tvg-name="凤凰卫视" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰卫视.png" group-title="🌊港·澳·台",凤凰卫视
 http://221.7.175.154:8445/tsfile/live/1020_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 tvg-name="凤凰卫视" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/凤凰卫视.png" group-title="🌊港·澳·台",凤凰卫视
+http://122.152.202.33/s/81a8a44f/index.m3u8?id=15
 #EXTINF:-1 tvg-name="TVBS亚洲" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/TVBS亚洲.png" group-title="🌊港·澳·台",TVBS亚洲
 http://38.64.72.148:80/hls/modn/list/4005/chunklist0.m3u8
 #EXTINF:-1 tvg-name="TVBS亚洲" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/TVBS亚洲.png" group-title="🌊港·澳·台",TVBS亚洲
@@ -458,13 +456,13 @@ https://cdn.iptv8k.top/dl/jrys.php?id=292&amp;time=20240926215313&amp;ip=111.229
 #EXTINF:-1 tvg-name="纬来体育" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/纬来体育.png" group-title="🌊港·澳·台",纬来体育
 http://122.117.71.103:8562/http/61.222.53.250:8081/hls/67/809/ch28.m3u8
 #EXTINF:-1 tvg-name="纬来体育" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/纬来体育.png" group-title="🌊港·澳·台",纬来体育
-http://148.135.34.95/mn.php?playurl=http://www.pelotas.org:8278/videolandsport/playlist.m3u8
+http://api3.52tb.xyz/info?id=376&token=20221127jxwhhemby
 #EXTINF:-1 tvg-name="纬来体育" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/纬来体育.png" group-title="🌊港·澳·台",纬来体育
 http://ku9.fr.to/smt.php?id=videolandsport
 #EXTINF:-1 tvg-name="纬来体育" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/纬来体育.png" group-title="🌊港·澳·台",纬来体育
-http://zb.xmzb.xyz/123.php?id=⚽马上oppppp一纬来体育
+http://148.135.34.95/mn.php?playurl=http://www.pelotas.org:8278/videolandsport/playlist.m3u8
 #EXTINF:-1 tvg-name="纬来体育" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/纬来体育.png" group-title="🌊港·澳·台",纬来体育
-http://kkk.jjjj.jiduo.me/api.php?n=tttt&id=1978&tk=e640d0a1bf70
+http://zb.xmzb.xyz/123.php?id=⚽马上oppppp一纬来体育
 #EXTINF:-1 tvg-name="纬来育乐" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/纬来育乐.png" group-title="🌊港·澳·台",纬来育乐
 rtmp://f13h.mine.nu/sat/tv701?rtmp://f13h.mine.nu:1935:1935/sat/tv701
 #EXTINF:-1 tvg-name="纬来育乐" tvg-logo="https://gh.catmak.name/https://raw.githubusercontent.com/fanmingming/live/main/tv/纬来育乐.png" group-title="🌊港·澳·台",纬来育乐
@@ -619,11 +617,11 @@ https://stream1.freetv.fun/0c552589b4fcf164ed142e83d60eeb4e0fe7569f82dfb443b89ae
 https://stream1.freetv.fun/f1dff8e37b2bf9bdd6a1fe8a6a931263c57282cae79672bcfc1f46e950559c66.ctv
 #EXTINF:-1 tvg-name="Love Nature" tvg-id="368607" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/02/05/large/20230205151332194260_50.jpg" group-title="知識",[BD]love nature
 https://stream1.freetv.fun/457074a301c7047148d666d3f3d719f18ccf5b87b857453b854103d60e2bb241.m3u8
-#EXTINF:-1 tvg-name="Love Nature" tvg-id="368607" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/02/05/large/20230205151332194260_50.jpg" group-title="知識",[SD]LOVE NATURE[geo-blocked]
+#EXTINF:-1 tvg-name="Love Nature" tvg-id="368607" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/02/05/large/20230205151332194260_50.jpg" group-title="知識",[BD]LOVE NATURE
 https://stream1.freetv.fun/b42065a1ef705ffd7502fdb61d715344c32d815983c1f2c39d147a5a02b8434d.ctv
 #EXTINF:-1 tvg-name="Love Nature" tvg-id="368607" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/02/05/large/20230205151332194260_50.jpg" group-title="知識",[BD]love nature en espanol[geo-blocked]
 https://stream1.freetv.fun/361593b3c754eafacde831748f8dfeeb9310975593acfd47d9207a633d72ae42.m3u8
-#EXTINF:-1 tvg-name="Love Nature" tvg-id="368607" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/02/05/large/20230205151332194260_50.jpg" group-title="知識",[SD]LOVE NATURE[geo-blocked]
+#EXTINF:-1 tvg-name="Love Nature" tvg-id="368607" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/02/05/large/20230205151332194260_50.jpg" group-title="知識",[BD]LOVE NATURE
 https://stream1.freetv.fun/017997b2ff4153ea76d903cdecb3276af15ce849f53b4b4121bb5598b491ddd4.ctv
 #EXTINF:-1 tvg-name="Love Nature" tvg-id="368607" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/02/05/large/20230205151332194260_50.jpg" group-title="知識",[BD]LOVE NATURE
 https://stream1.freetv.fun/410d4cf4b2fd4c0164a779aad899eed3c8fce3b3a0d8d249ff016642c5bfaf73.ctv
@@ -677,7 +675,7 @@ https://stream1.freetv.fun/293a9239d67a76a3df7cc95f531990554794b206a2fae16416450
 https://stream1.freetv.fun/c423a0aa4147f26596813549346b19b5a15bbd35fa6ce7b0ab979ec2cd10924d.m3u8
 #EXTINF:-1 tvg-name="三立戲劇" tvg-id="368788" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/21/large/20230721172523829915_30.png" group-title="電影",[HD]三立戏剧
 https://stream1.freetv.fun/fd58a91cf79c4b7cd928f8a9c84f3505bc01921954f6c263a2da55a9c456d6be.ctv
-#EXTINF:-1 tvg-name="三立戲劇" tvg-id="368788" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/21/large/20230721172523829915_30.png" group-title="電影",[HD]三立戏剧
+#EXTINF:-1 tvg-name="三立戲劇" tvg-id="368788" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/21/large/20230721172523829915_30.png" group-title="電影",[HD]三立戏剧[geo-blocked]
 https://stream1.freetv.fun/38b16d6f182cd55b7a542696a148d850cf352ea7c01b6a76d452002644e34fbb.m3u8
 #EXTINF:-1 tvg-name="三立新聞" tvg-id="369243" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/21/large/20230721173220819747_86.png" group-title="新聞",[BD]三立新闻台
 https://stream1.freetv.fun/ea74b932d9d126c79dbea6485ac7119fb16be08f6e7a4494cd2647641c93361d.m3u8
@@ -705,7 +703,7 @@ rtmp://f13h.mine.nu:1935/sat/tv091
 rtmp://f13h.mine.nu/sat/tv091
 #EXTINF:-1 tvg-name="中視" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/11/large/20230711221412936937_72.png" group-title="綜合",[BD]中視
 https://stream1.freetv.fun/850967cb490cf3c98e20a19b56de0e5a029710949cff71a4132bf059dcf656bc.m3u8
-#EXTINF:-1 tvg-name="中視HD" tvg-id="368560" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2025/01/28/large/20250128055838912553_80.png" group-title="綜合",[HD]中视
+#EXTINF:-1 tvg-name="中視HD" tvg-id="368560" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2025/01/28/large/20250128055838912553_80.png" group-title="綜合",[HD]中视[geo-blocked]
 https://stream1.freetv.fun/45434002fca7b5d952489448ee8ccb15dcdc53e148500d0a5ffe6644c7b14ab4.m3u8
 #EXTINF:-1 tvg-name="亞洲旅遊臺" tvg-id="368733" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2018/03/11/large/20180311221333244935_31.png" group-title="其它",[BD]亚洲旅游
 https://stream1.freetv.fun/eb82250a3a363114586eddaf0775bd48ae7e26348676bd7753031166f118b826.m3u8
@@ -737,9 +735,9 @@ https://stream1.freetv.fun/c7f872f6da5871c2bf37d3829e4aed2fc681e8f29d9b0f5bda748
 https://stream1.freetv.fun/decc2d4faebf04edfebbeffda83625e3e1d1e315706de1a33d76cc057ace2c4c.m3u8
 #EXTINF:-1 tvg-name="八大戲劇HD" tvg-id="369226" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/20/large/20230720155115252575_13.png" group-title="電影",[HD]八大戏剧
 https://stream1.freetv.fun/d29f5b90988c837bb8afc96017dd772aa68cb99981f807169cafc79cdf7ac12f.m3u8
-#EXTINF:-1 tvg-name="八大第1臺HD" tvg-id="368943" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/20/large/20230720154758414370_68.png" group-title="綜藝",[BD]八大第一[geo-blocked]
+#EXTINF:-1 tvg-name="八大第1臺HD" tvg-id="368943" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/20/large/20230720154758414370_68.png" group-title="綜藝",[BD]八大第一
 https://stream1.freetv.fun/0a69db542fb0ffb28f514894c0121fab614596f933505273a7d0443515e1bba1.m3u8
-#EXTINF:-1 tvg-name="八大第1臺HD" tvg-id="368943" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/20/large/20230720154758414370_68.png" group-title="綜藝",[BD]八大第一[geo-blocked]
+#EXTINF:-1 tvg-name="八大第1臺HD" tvg-id="368943" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/20/large/20230720154758414370_68.png" group-title="綜藝",[BD]八大第一
 https://stream1.freetv.fun/bfb696d22a4dbe907c274f06fe09a10fb575b95c99dc50cd2cf9ba3b1c8c5b5b.m3u8
 #EXTINF:-1 tvg-name="八大綜合" tvg-id="368953" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/20/large/20230720154712065553_65.png" group-title="綜合",[SD]八大综合
 https://stream1.freetv.fun/54d476d99182fbf22a138d5c1dadcb6514ce41b0f90e4b4a76ff86f785eb0cbb.m3u8
@@ -811,7 +809,7 @@ https://stream1.freetv.fun/5fccf4a4972d39810ed6ac299db54c1cd33cf614dc04364ed982a
 https://stream1.freetv.fun/797529276770285bb5212acd5798702e0db85532c78121a94f600759dec5dabf.m3u8
 #EXTINF:-1 tvg-name="好訊息" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2022/11/26/large/20221126210954040708_43.jpg" group-title="其它",[VGA]好消息
 https://stream1.freetv.fun/7e863d41fbb20975775323c59644b5d46c3a28b9c2f01e4b574a14761e01641e.m3u8
-#EXTINF:-1 tvg-name="寰宇新聞" tvg-id="368812" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/24/large/20230724134213849437_33.png" group-title="新聞",[BD]寰宇新闻
+#EXTINF:-1 tvg-name="寰宇新聞" tvg-id="368812" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/24/large/20230724134213849437_33.png" group-title="新聞",[BD]寰宇新闻[geo-blocked]
 https://stream1.freetv.fun/f1aee25c74ec1e559ed86c00feb6074cef35d76d15a0d3f7019530b7ac094bcc.m3u8
 #EXTINF:-1 tvg-name="寰宇新聞" tvg-id="368812" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/24/large/20230724134213849437_33.png" group-title="新聞",[HD]寰宇新闻
 https://stream1.freetv.fun/1a8764d080afe4b8543f76b10ec64c55d4ae232d73ac71da514a7ba834f2b0e6.ctv
@@ -877,8 +875,8 @@ https://stream1.freetv.fun/bab8065e884e2bdc304409c9cad21b27e7ecfe42e7c3476ffa0ef
 rtmp://f13h.mine.nu:1935/sat/tv331
 #EXTINF:-1 tvg-name="東森電影" tvg-id="369263" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/22/large/20230722105858673463_13.png" group-title="電影",[SD]东森电影[geo-blocked]
 https://stream1.freetv.fun/84b53f0235948b735b69dab43b966bb640c16375861da25c6b29afe29568396e.ctv
-#EXTINF:-1 tvg-name="東森電影" tvg-id="369263" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/22/large/20230722105858673463_13.png" group-title="電影",[BD]东森电影
-https://stream1.freetv.fun/e0eb43da03e796ba7ff0f0e15429a4f5e0f86365a1a47198869e5cf35a47096e.m3u8
+#EXTINF:-1 tvg-name="東森電影" tvg-id="369263" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/22/large/20230722105858673463_13.png" group-title="電影",[BD]东森电影[geo-blocked]
+https://stream1.freetv.fun/93a03cbed75762466910af326fd4ca18aa69c93f658aea592d09d9043ee2a44d.m3u8
 #EXTINF:-1 tvg-name="東森電影" tvg-id="369263" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/22/large/20230722105858673463_13.png" group-title="電影",[BD]东森电影[geo-blocked]
 https://stream1.freetv.fun/7e7daf1aca2b5fc6ab5365c3d5201b91e3b538cd4a947fd5bdb0256900d3f638.ctv
 #EXTINF:-1 tvg-name="東風衛星臺" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/08/04/large/20230804221422181243_14.jpg" group-title="綜合",[BD]东风卫视
@@ -917,8 +915,6 @@ https://stream1.freetv.fun/1f8ae2cd70bd10ff4b1c7e7ce2db6d534f0b00caca678a8a513ca
 https://stream1.freetv.fun/b399ca0e9a6cda833d86d80ddd3423a9246b120ce63e0ce8c86fb2296f97b058.m3u8
 #EXTINF:-1 tvg-name="生命電視臺" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/img/logo/1_420.jpg" group-title="其它",[BD]生命电视台
 https://stream1.freetv.fun/3f1da41967f70b7fc0c80cce65f2a8c6d9c74b85eb97d39b0f3745b36b69a875.m3u8
-#EXTINF:-1 tvg-name="經典電影臺" tvg-id="370259" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2024/02/28/large/20240228002632629515_75.png" group-title="電影",[BD]经典电影
-https://stream1.freetv.fun/a8fb7adb8dbbc9bb8251b6dca1f06bde4a42896fc3c871353438d667450360b1.m3u8
 #EXTINF:-1 tvg-name="經典電影臺" tvg-id="370259" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2024/02/28/large/20240228002632629515_75.png" group-title="電影",[HD]经典电影
 https://stream1.freetv.fun/aa0e02379ba0e907cb6e407c690c07cc970c389245a320272c8adc758c9427b7.ctv
 #EXTINF:-1 tvg-name="經典電影臺" tvg-id="370259" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2024/02/28/large/20240228002632629515_75.png" group-title="電影",[BD]经典电影
@@ -927,16 +923,20 @@ https://stream1.freetv.fun/7ef761783289fd2b6e5426e99aa3376480041b166ee31a68aa1a5
 https://stream1.freetv.fun/d62485ca85db1dfdb86a298ffd73dde73d05c4c798def0bc8f55b73fbd931480.ctv
 #EXTINF:-1 tvg-name="經典電影臺" tvg-id="370259" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2024/02/28/large/20240228002632629515_75.png" group-title="電影",[BD]经典电影
 https://stream1.freetv.fun/c481229b929be509d19b4a3d349dc4ded5a48cf0bfb6673c323c24a10817e663.ctv
-#EXTINF:-1 tvg-name="經典電影臺" tvg-id="370259" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2024/02/28/large/20240228002632629515_75.png" group-title="電影",[BD]经典电影[geo-blocked]
+#EXTINF:-1 tvg-name="經典電影臺" tvg-id="370259" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2024/02/28/large/20240228002632629515_75.png" group-title="電影",[BD]经典电影
 https://stream1.freetv.fun/a955778bb545a07941ec561897bcf11f9e9d32bde24b6d6f3da5d45b714a46b1.m3u8
+#EXTINF:-1 tvg-name="經典電影臺" tvg-id="370259" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2024/02/28/large/20240228002632629515_75.png" group-title="電影",[HD]经典电影
+https://stream1.freetv.fun/8f777a8c96c1e3cf49cb17a514c946d7a2404e5df69cf2584f1b7ff67e1b6cd9.ctv
 #EXTINF:-1 tvg-name="經典電影臺" tvg-id="370259" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2024/02/28/large/20240228002632629515_75.png" group-title="電影",[BD]经典电影[geo-blocked]
 https://stream1.freetv.fun/26e9153177364b7c1bc7d1db50b6e9c74cc17d735c87c3863f7f8234247d8c6a.ctv
+#EXTINF:-1 tvg-name="經典電影臺" tvg-id="370259" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2024/02/28/large/20240228002632629515_75.png" group-title="電影",[BD]经典电影
+https://stream1.freetv.fun/a8fb7adb8dbbc9bb8251b6dca1f06bde4a42896fc3c871353438d667450360b1.m3u8
 #EXTINF:-1 tvg-name="經典電影臺" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/04/28/large/20230428003944893108_94.jpg" group-title="電影",[BD]经典电影
 https://stream1.freetv.fun/e34e404fc0521bb6de2d8a021eac9525d0847af3468404ce2248a1cc04b1b839.m3u8
-#EXTINF:-1 tvg-name="經典電影臺" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/04/28/large/20230428003944893108_94.jpg" group-title="電影",[BD]经典电影[geo-blocked]
-https://stream1.freetv.fun/c449ba8415e56b980218ce30f0540479e11ae74c31dbc3132ff8617030b9c461.ctv
 #EXTINF:-1 tvg-name="經典電影臺" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/04/28/large/20230428003944893108_94.jpg" group-title="電影",[BD]经典电影
 https://stream1.freetv.fun/1bafe4bd000021327a0885b59d65d78542ea6187d0ecb06939fb08daef7d1217.m3u8
+#EXTINF:-1 tvg-name="經典電影臺" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/04/28/large/20230428003944893108_94.jpg" group-title="電影",[BD]经典电影
+https://stream1.freetv.fun/97df4373411c47f7f36ad2038590a95069d4bce63acd52e246c67b3aff64daee.ctv
 #EXTINF:-1 tvg-name="緯來戲劇" tvg-id="369224" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/22/large/20230722105525808337_70.png" group-title="電影",[BD]緯來戲劇[geo-blocked]
 https://stream1.freetv.fun/9a3ecad00b3dc63999364b9fe2b57b38e82f78f75cf6357e92dbe8f19feb7218.m3u8
 #EXTINF:-1 tvg-name="緯來日本" tvg-id="369284" tvg-country="台灣" tvg-language="日語" tvg-logo="https://epg.pw/media/images/channel/2023/07/22/large/20230722105459178241_22.png" group-title="綜藝",[BD]纬来日本
@@ -959,6 +959,8 @@ https://stream1.freetv.fun/72eed2c8e30beebb70d7931478cf693b3e1c401ff3a17f11cd1e9
 rtmp://f13h.mine.nu:1935/sat/tv721
 #EXTINF:-1 tvg-name="緯來體育" tvg-id="369287" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/22/large/20230722105618864183_26.png" group-title="運動",[BD]纬来体育[geo-blocked]
 https://stream1.freetv.fun/2a97ff36ea404b8095cb4384eb9846e9eebdadbee0b1ac31c5bc4c80f6b5b03b.ctv
+#EXTINF:-1 tvg-name="緯來體育" tvg-id="369287" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/22/large/20230722105618864183_26.png" group-title="運動",[BD]纬来体育
+https://stream1.freetv.fun/293ffc7d611ff105b214c4988db64f399b5ab87a1b5395ca4ff735e98645e854.m3u8
 #EXTINF:-1 tvg-name="緯來體育" tvg-id="369287" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/22/large/20230722105618864183_26.png" group-title="運動",[HD]纬来体育[geo-blocked]
 rtmp://f13h.mine.nu/sat/tv721
 #EXTINF:-1 tvg-name="美亞電影台[TW]" tvg-id="368837" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2024/01/14/large/20240114154701302621_82.png" group-title="電影",[HD]美亚电影
@@ -973,7 +975,7 @@ rtmp://f13h.mine.nu/sat/tv071
 rtmp://f13h.mine.nu:1935/sat/tv071
 #EXTINF:-1 tvg-name="臺視國際臺" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2022/08/03/large/20220803162548478104_50.jpg" group-title="綜合",[VGA]台视国际台[geo-blocked]
 https://stream1.freetv.fun/24114e3122d6c7729f4dc5fa6f0b719f7b3a735899866db2b11aac2c9e1b31c8.m3u8
-#EXTINF:-1 tvg-name="臺視新聞" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2022/11/27/large/20221127002436544853_95.png" group-title="新聞",[BD]台视新闻 hd[geo-blocked]
+#EXTINF:-1 tvg-name="臺視新聞" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2022/11/27/large/20221127002436544853_95.png" group-title="新聞",[BD]台视新闻 hd
 https://stream1.freetv.fun/f860d9c0db6439c0bacd9a76f24d9d18ce57a7c6b44826832f890f0f9b5840a5.m3u8
 #EXTINF:-1 tvg-name="臺視新聞" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2022/11/27/large/20221127002436544853_95.png" group-title="新聞",[BD]台视新闻 hd
 https://stream1.freetv.fun/4c8adef47c01115677bc13b65593946135e6fe8c470fad1db810248c3ca10150.m3u8
@@ -985,7 +987,7 @@ https://stream1.freetv.fun/2cd7d95623d15269907381c4334b4472875d13eb3d29b2e59dd6f
 https://stream1.freetv.fun/784ae05fb9ac11addbb721a62d2ac99848c7ce019b5ede7f8faa8bc2c6e5de6f.m3u8
 #EXTINF:-1 tvg-name="臺視新聞臺" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/uploads/tmp_logo/2016/11/22/20161122123940121042_91.png" group-title="新聞",[BD]台視新聞
 https://stream1.freetv.fun/84bd51e83b43802f2624c730b0fb47c23e165aa46dc85122678d745ed1a8a2b0.m3u8
-#EXTINF:-1 tvg-name="臺視新聞臺" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/uploads/tmp_logo/2016/11/22/20161122123940121042_91.png" group-title="新聞",[BD]台視新聞[geo-blocked]
+#EXTINF:-1 tvg-name="臺視新聞臺" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/uploads/tmp_logo/2016/11/22/20161122123940121042_91.png" group-title="新聞",[BD]台視新聞
 https://stream1.freetv.fun/3e712c7facb3dbae8eebf29e560978e03f3711827b09e8a4f2ae7f346673716f.m3u8
 #EXTINF:-1 tvg-name="臺視新聞臺" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/uploads/tmp_logo/2016/11/22/20161122123940121042_91.png" group-title="新聞",[BD]台视新聞
 https://stream1.freetv.fun/9e87c84976d8ad7ce1dac1ba154da29c85371dffd4a6c00a3dfde2bf1fed5735.m3u8
@@ -1005,8 +1007,6 @@ https://stream1.freetv.fun/44f51ba4f42bbe4746cdf11c23c9d10196cab92921a73ce5d01e4
 https://stream1.freetv.fun/e9f46bd9382a75cc97aaa461fe70bc32381de5695413f2d1270fc33961d91231.m3u8
 #EXTINF:-1 tvg-name="靖天戲劇" tvg-id="368794" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/20/large/20230720211720021890_59.png" group-title="電影",[BD]靖天戏剧[geo-blocked]
 https://stream1.freetv.fun/578d90e7aa7f4396eef035dfc94791aad1da999fe22b9a5c55e38b8a5b09cdef.ctv
-#EXTINF:-1 tvg-name="靖天映畫" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/20/large/20230720211824734749_31.png" group-title="電影",[BD]靖天映画[geo-blocked]
-https://stream1.freetv.fun/2486a321dd7bb473eb4ea15da14edd9342ff00751cbf2001bcc741872a4935c3.ctv
 #EXTINF:-1 tvg-name="靖天資訊" tvg-id="" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/20/large/20230720211439196918_86.png" group-title="新聞",[BD]靖天资讯[geo-blocked]
 https://stream1.freetv.fun/1f5da4990240fb9b9a36b2f16ef151936e9b29f4fffbe18dd899e68aab72f0c5.ctv
 #EXTINF:-1 tvg-name="靖天電影" tvg-id="368840" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/20/large/20230720211600121903_76.png" group-title="電影",[BD]靖天电影
@@ -1021,8 +1021,6 @@ https://stream1.freetv.fun/5a7c8a4f7ad7743f985e06ff124da7ee0ce6a8940b6a664c80d5e
 https://stream1.freetv.fun/6dfb8189be0e3e69a2b9a63956a201bdd04ba0c3db1eeec0c20406ada33ba775.m3u8
 #EXTINF:-1 tvg-name="龍華戲劇" tvg-id="334887" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/24/large/20230724170326264507_47.png" group-title="電影",[HD]龙华戏剧
 https://stream1.freetv.fun/643e102a893b2d330b1a16102c5e9bbac0dab1530ca57aa960ec0127a503e948.ctv
-#EXTINF:-1 tvg-name="龍華洋片" tvg-id="368841" tvg-country="台灣" tvg-language="英文" tvg-logo="https://epg.pw/media/images/channel/2023/07/24/large/20230724165853232167_47.png" group-title="電影",[HD]龙华洋片
-https://stream1.freetv.fun/458429f81d1a14007fd3d6f5a8ec3cdd04e16d2237f1f1647eaf3c027cc96505.ctv
 #EXTINF:-1 tvg-name="龍華洋片" tvg-id="368841" tvg-country="台灣" tvg-language="英文" tvg-logo="https://epg.pw/media/images/channel/2023/07/24/large/20230724165853232167_47.png" group-title="電影",[BD]龙华洋片
 https://stream1.freetv.fun/07af5ce9e0d331228189888717ee6d91f727f9bbc5720e912578119d64e346dd.m3u8
 #EXTINF:-1 tvg-name="龍華電影" tvg-id="368838" tvg-country="台灣" tvg-language="國語" tvg-logo="https://epg.pw/media/images/channel/2023/07/24/large/20230724170416278600_34.png" group-title="電影",[BD]龙华电影
