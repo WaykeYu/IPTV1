@@ -2,8 +2,8 @@ name: Update IPTV
 
 on:
   schedule:
-    - cron: '0 1 * * *'
-  workflow_dispatch:
+    - cron: '0 1 * * *'  # 每日更新
+  workflow_dispatch:  # 手動觸發
 
 env:
   TZ: Asia/Shanghai
@@ -16,10 +16,22 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Set up Go
-      uses: actions/setup-go@v5
-      with:
-        go-version: '1.19'
+    # 如果不需要 Go 相關的操作，可以移除此步驟
+    # - name: Set up Go
+    #   uses: actions/setup-go@v5
+    #   with:
+    #     go-version: '1.19'
+
+    # 如果不需要快取，可以移除快取步驟
+    # - name: Cache Go modules
+    #   uses: actions/cache@v3
+    #   with:
+    #     path: |
+    #       ~/.cache/go-build
+    #       ~/go/pkg/mod
+    #     key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-go-
 
     - name: Get current date
       id: date
@@ -27,8 +39,10 @@ jobs:
 
     - name: Update IPTV sources
       run: |
-        set -e
+        set -e  # 遇到錯誤時立刻停止
+
         echo "=== 🚀 開始更新 IPTV 源 ==="
+
         #--------------------------------------------------
         # 🧩 通用函數
         #--------------------------------------------------
@@ -36,7 +50,7 @@ jobs:
           url=$1
           file=$2
           echo "↓ 下載: $url"
-          wget -q --timeout=30 "$url" -O "$file" || echo "⚠️ 下載失敗: $url"
+          wget -q --timeout=30 "$url" -O "$file" || { echo "⚠️ 下載失敗: $url"; exit 1; }
         }
         clean_m3u() {
           file=$1
@@ -48,7 +62,7 @@ jobs:
           shift
           echo "#EXTM3U" > "$output"
           for f in "$@"; do
-            [ -f "$f" ] && cat "$f" >> "$output"
+            [ -f "$f" ] && tail -n +2 "$f" >> "$output"  # 去除每個源文件的 #EXTM3U 標頭
           done
           sed -i '/^\s*$/d' "$output"
         }
@@ -70,12 +84,14 @@ jobs:
             validate_m3u "$f"
           done
         }
+
         #--------------------------------------------------
         # 📺 央视源
         #--------------------------------------------------
         download "https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u" source.m3u
         sed -n '/央视频道/,+1p' source.m3u > CCTV.m3u
         clean_m3u CCTV.m3u
+
         #--------------------------------------------------
         # 🛰️ 卫视源
         #--------------------------------------------------
@@ -84,6 +100,7 @@ jobs:
         sed -n '/超清频道/,+1p' source.m3u > CNTV3.m3u
         combine_m3u CNTV.m3u CNTV1.m3u CNTV2.m3u CNTV3.m3u
         rm -f CNTV1.m3u CNTV2.m3u CNTV3.m3u
+
         #--------------------------------------------------
         # 🔞 成人源
         #--------------------------------------------------
@@ -96,6 +113,7 @@ jobs:
         download "https://raw.githubusercontent.com/WaykeYu/MyTV_tw/refs/heads/main/UBTV18.m3u" AdultE.m3u
         combine_m3u Adult.m3u AdultA.m3u AdultB.m3u AdultC.m3u AdultD.m3u AdultE.m3u
         rm -f AdultA.m3u AdultB.m3u AdultC.m3u AdultD.m3u AdultE.m3u
+
         #--------------------------------------------------
         # 🇭🇰🇲🇴🇹🇼 港澳台源
         #--------------------------------------------------
@@ -108,6 +126,7 @@ jobs:
         download "https://raw.githubusercontent.com/WaykeYu/verify-iptv/refs/heads/main/source/UBTV.m3u" GAT7.m3u
         combine_m3u GAT.m3u GAT1.m3u GAT2.m3u GAT3.m3u GAT4.m3u GAT5.m3u GAT6.m3u GAT7.m3u
         rm -f GAT1.m3u GAT2.m3u GAT3.m3u GAT4.m3u GAT5.m3u GAT6.m3u GAT7.m3u
+
         #--------------------------------------------------
         # 💎 4K 源
         #--------------------------------------------------
@@ -116,33 +135,27 @@ jobs:
         sed -n '/4k/,+1p' 4k_raw.m3u >> 4k.m3u
         clean_m3u 4k.m3u
         rm -f 4k_raw.m3u
+
         #--------------------------------------------------
         # 🧪 驗證各源檔案有效性
         #--------------------------------------------------
         echo "=== 🔍 開始驗證所有 m3u 檔案 ==="
         validate_all
+
         #--------------------------------------------------
         # 🔗 整合源（無成人）
         #--------------------------------------------------
         combine_m3u IPTV.m3u CCTV.m3u CNTV.m3u GAT.m3u 4k.m3u
+
         #--------------------------------------------------
         # 🔗 整合源（含成人）
         #--------------------------------------------------
         combine_m3u IPTV-all.m3u CCTV.m3u CNTV.m3u GAT.m3u 4k.m3u Adult.m3u
+
         #--------------------------------------------------
         # 🗓️ 節目源與說明文件
         #--------------------------------------------------
         download "https://epg.112114.xyz/pp.xml" EPG.xml
         echo "### 📺 IPTV 自動更新" > README.md
         echo "- 更新時間：${{ steps.date.outputs.date }}" >> README.md
-        echo "- 已驗證各 M3U 檔案有效性" >> README.md
-        echo "- 來源：fanmingming、YanG-1989、WaykeYu、Guovin、adultiptv 等" >> README.md
-        echo "- 自動整合生成 IPTV.m3u 與 IPTV-all.m3u" >> README.md
-        echo "=== ✅ 更新與驗證完成 ==="
-    - name: Commit and Push
-      run: |
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git add -A
-        git diff --quiet && echo "No changes to commit." || git commit -am "${{ steps.date.outputs.date }}"
-        git push -f origin main
+        echo
