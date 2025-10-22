@@ -2,8 +2,8 @@ name: Update IPTV
 
 on:
   schedule:
-    - cron: '0 1 * * *' # 每天凌晨1點自動執行
-  workflow_dispatch: # 允許手動觸發
+    - cron: '0 1 * * *'
+  workflow_dispatch:
 
 env:
   TZ: Asia/Shanghai
@@ -31,9 +31,6 @@ jobs:
         set -eo pipefail
         echo "=== 🚀 開始更新 IPTV 源 ==="
 
-        #--------------------------------------------------
-        # 🧩 通用函數
-        #--------------------------------------------------
         download() {
           local url=$1
           local file=$2
@@ -89,8 +86,6 @@ jobs:
         if grep -q '央视频道' source.m3u; then
           sed -n '/央视频道/,+1p' source.m3u > CCTV.m3u
           clean_m3u CCTV.m3u
-        else
-          echo "⚠️ 未找到央视频道"
         fi
 
         #--------------------------------------------------
@@ -111,12 +106,10 @@ jobs:
         download "http://adultiptv.net/chs.m3u" AdultA.m3u
         sed -i 's/XXX/成人频道/' AdultA.m3u || true
         sed -i 's/AdultIPTV.net //g' AdultA.m3u || true
-
         download "https://met.pages.dev/static/iptv/av.m3u" AdultB.m3u
         download "https://raw.githubusercontent.com/hfpiao/IPTV/refs/heads/main/Adult.m3u" AdultC.m3u
         download "https://raw.githubusercontent.com/yyqyu/mytv/refs/heads/main/Adult.m3u" AdultD.m3u
         download "https://raw.githubusercontent.com/WaykeYu/MyTV_tw/refs/heads/main/UBTV18.m3u" AdultE.m3u
-
         combine_m3u Adult.m3u AdultA.m3u AdultB.m3u AdultC.m3u AdultD.m3u AdultE.m3u
         rm -f AdultA.m3u AdultB.m3u AdultC.m3u AdultD.m3u AdultE.m3u
 
@@ -130,12 +123,11 @@ jobs:
         download "https://iptv-org.github.io/iptv/countries/tw.m3u" GAT5.m3u
         download "https://raw.githubusercontent.com/WaykeYu/MyTV_tw/refs/heads/main/TW_switch.m3u" GAT6.m3u
         download "https://raw.githubusercontent.com/WaykeYu/verify-iptv/refs/heads/main/source/UBTV.m3u" GAT7.m3u
-
         combine_m3u GAT.m3u GAT1.m3u GAT2.m3u GAT3.m3u GAT4.m3u GAT5.m3u GAT6.m3u GAT7.m3u
         rm -f GAT1.m3u GAT2.m3u GAT3.m3u GAT4.m3u GAT5.m3u GAT6.m3u GAT7.m3u
 
         #--------------------------------------------------
-        # 💎 4K 源（改為 fourk 命名）
+        # 💎 4K 源（改為 fourk）
         #--------------------------------------------------
         download "https://raw.githubusercontent.com/YanG-1989/m3u/main/Gather.m3u" fourk_raw.m3u
         sed -n '/4K/,+1p' fourk_raw.m3u > fourk.m3u
@@ -150,13 +142,9 @@ jobs:
         validate_all
 
         #--------------------------------------------------
-        # 🔗 整合源（無成人）
+        # 🔗 整合源
         #--------------------------------------------------
         combine_m3u IPTV.m3u CCTV.m3u CNTV.m3u GAT.m3u fourk.m3u
-
-        #--------------------------------------------------
-        # 🔗 整合源（含成人）
-        #--------------------------------------------------
         combine_m3u IPTV-all.m3u CCTV.m3u CNTV.m3u GAT.m3u fourk.m3u Adult.m3u
 
         #--------------------------------------------------
@@ -164,7 +152,7 @@ jobs:
         #--------------------------------------------------
         download "https://epg.112114.xyz/pp.xml" EPG.xml
 
-        cat > README.md <<EOF
+        cat > README.md <<'EOF'
 ### 📺 IPTV 自動更新
 - 更新時間：${{ steps.date.outputs.date }}
 - 已驗證各 M3U 檔案有效性
