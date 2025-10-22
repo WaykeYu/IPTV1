@@ -129,7 +129,7 @@ jobs:
           rm -f GAT1.m3u GAT2.m3u GAT3.m3u GAT4.m3u GAT5.m3u GAT6.m3u GAT7.m3u
 
           # ---------------------------
-          # 4K 源（改名為 fourk_*）
+          # 4K 源
           # ---------------------------
           download "https://raw.githubusercontent.com/YanG-1989/m3u/main/Gather.m3u" fourk_raw.m3u
           sed -n '/4K/,+1p' fourk_raw.m3u > fourk.m3u || true
@@ -154,14 +154,14 @@ jobs:
           # ---------------------------
           download "https://epg.112114.xyz/pp.xml" EPG.xml
 
+          # ---------------------------
           # 寫 README
-          cat > README.md <<'EOF'
-### 📺 IPTV 自動更新
-- 更新時間: '"$DATE"'
-- 已驗證各 M3U 檔案有效性
-- 來源: fanmingming, YanG-1989, WaykeYu, Guovin, adultiptv 等
-- 自動整合生成 IPTV.m3u 與 IPTV-all.m3u
-EOF
+          # ---------------------------
+          echo "### 📺 IPTV 自動更新" > README.md
+          echo "- 更新時間: ${DATE}" >> README.md
+          echo "- 已驗證各 M3U 檔案有效性" >> README.md
+          echo "- 來源: fanmingming, YanG-1989, WaykeYu, Guovin, adultiptv 等" >> README.md
+          echo "- 自動整合生成 IPTV.m3u 與 IPTV-all.m3u" >> README.md
 
           echo "=== ✅ 更新與驗證完成 ==="
 
