@@ -31,7 +31,8 @@ jobs:
           set -eo pipefail
           echo "=== 🚀 開始更新 IPTV 源 ==="
 
-          # 說明：download(file) 若失敗會刪除目標檔案，避免留下空檔
+          DATE="${{ steps.date.outputs.date }}"
+
           download() {
             local url=$1
             local file=$2
@@ -87,12 +88,10 @@ jobs:
           if grep -q '央视频道' source.m3u; then
             sed -n '/央视频道/,+1p' source.m3u > CCTV.m3u
             clean_m3u CCTV.m3u
-          else
-            echo "⚠️ 未找到 央视频道 標記"
           fi
 
           # ---------------------------
-          # 卫视源（使用 mktemp）
+          # 卫视源
           # ---------------------------
           tmp1=$(mktemp /tmp/tmpfile.XXXXXX)
           tmp2=$(mktemp /tmp/tmpfile.XXXXXX)
@@ -155,11 +154,10 @@ jobs:
           # ---------------------------
           download "https://epg.112114.xyz/pp.xml" EPG.xml
 
-          # 寫 README（使用 run 中的變數展開）
-          DATE="${{ steps.date.outputs.date }}"
-          cat > README.md <<EOF
+          # 寫 README
+          cat > README.md <<'EOF'
 ### 📺 IPTV 自動更新
-- 更新時間: ${DATE}
+- 更新時間: '"$DATE"'
 - 已驗證各 M3U 檔案有效性
 - 來源: fanmingming, YanG-1989, WaykeYu, Guovin, adultiptv 等
 - 自動整合生成 IPTV.m3u 與 IPTV-all.m3u
@@ -178,4 +176,3 @@ EOF
             git push -f origin HEAD:${{ github.ref_name }}
           else
             echo "🟢 No changes to commit."
-          fi
