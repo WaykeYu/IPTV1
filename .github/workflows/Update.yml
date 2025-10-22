@@ -2,8 +2,8 @@ name: Update IPTV
 
 on:
   schedule:
-    - cron: '0 1 * * *'
-  workflow_dispatch:
+    - cron: '0 1 * * *' # 每天凌晨1點自動執行
+  workflow_dispatch: # 允許手動觸發
 
 env:
   TZ: Asia/Shanghai
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
+    - name: Checkout repository
       uses: actions/checkout@v4
 
     - name: Set up Go
@@ -26,28 +26,35 @@ jobs:
       run: echo "date=$(date +'%Y-%m-%d %H:%M:%S CST')" >> $GITHUB_OUTPUT
 
     - name: Update IPTV sources
+      shell: bash
       run: |
-        set -e
+        set -euo pipefail
         echo "=== 🚀 開始更新 IPTV 源 ==="
 
         #--------------------------------------------------
         # 🧩 通用函數
         #--------------------------------------------------
         download() {
-          url=$1
-          file=$2
+          local url=$1
+          local file=$2
           echo "↓ 下載: $url"
-          wget -q --timeout=30 "$url" -O "$file" || echo "⚠️ 下載失敗: $url"
+          if wget -q --timeout=30 -O "$file" "$url"; then
+            echo "✅ 成功：$url"
+          else
+            echo "⚠️ 下載失敗: $url"
+            rm -f "$file"
+          fi
         }
 
         clean_m3u() {
-          file=$1
-          [ -f "$file" ] && sed -i '/^\s*$/d' "$file"
-          [ -f "$file" ] && sed -i '1i #EXTM3U' "$file"
+          local file=$1
+          [ -f "$file" ] || return
+          sed -i '/^\s*$/d' "$file"
+          grep -q '^#EXTM3U' "$file" || sed -i '1i #EXTM3U' "$file"
         }
 
         combine_m3u() {
-          output=$1
+          local output=$1
           shift
           echo "#EXTM3U" > "$output"
           for f in "$@"; do
@@ -57,16 +64,15 @@ jobs:
         }
 
         validate_m3u() {
-          file=$1
-          if [ -f "$file" ]; then
-            info_count=$(grep -c '^#EXTINF' "$file" || true)
-            url_count=$(grep -Ec '^(http|rtsp)' "$file" || true)
-            if [ "$info_count" -lt 1 ] || [ "$url_count" -lt 1 ]; then
-              echo "⚠️ 驗證失敗：$file（EXTINF:$info_count / URL:$url_count） → 已刪除"
-              rm -f "$file"
-            else
-              echo "✅ 驗證通過：$file（EXTINF:$info_count / URL:$url_count）"
-            fi
+          local file=$1
+          [ -f "$file" ] || return
+          local info_count=$(grep -c '^#EXTINF' "$file" || true)
+          local url_count=$(grep -Ec '^(http|rtsp)' "$file" || true)
+          if [ "$info_count" -lt 3 ] || [ "$url_count" -lt 3 ]; then
+            echo "⚠️ 驗證失敗：$file（EXTINF:$info_count / URL:$url_count） → 已刪除"
+            rm -f "$file"
+          else
+            echo "✅ 驗證通過：$file（EXTINF:$info_count / URL:$url_count）"
           fi
         }
 
@@ -86,18 +92,21 @@ jobs:
         #--------------------------------------------------
         # 🛰️ 卫视源
         #--------------------------------------------------
-        sed -n '/卫视频道/,+1p' source.m3u > CNTV1.m3u
-        sed -n '/NewTV系列/,+1p' source.m3u > CNTV2.m3u
-        sed -n '/超清频道/,+1p' source.m3u > CNTV3.m3u
-        combine_m3u CNTV.m3u CNTV1.m3u CNTV2.m3u CNTV3.m3u
-        rm -f CNTV1.m3u CNTV2.m3u CNTV3.m3u
+        tmp1=$(mktemp)
+        tmp2=$(mktemp)
+        tmp3=$(mktemp)
+        sed -n '/卫视频道/,+1p' source.m3u > "$tmp1"
+        sed -n '/NewTV系列/,+1p' source.m3u > "$tmp2"
+        sed -n '/超清频道/,+1p' source.m3u > "$tmp3"
+        combine_m3u CNTV.m3u "$tmp1" "$tmp2" "$tmp3"
+        rm -f "$tmp1" "$tmp2" "$tmp3"
 
         #--------------------------------------------------
         # 🔞 成人源
         #--------------------------------------------------
         download "http://adultiptv.net/chs.m3u" AdultA.m3u
-        sed -i 's/XXX/成人频道/' AdultA.m3u
-        sed -i 's/AdultIPTV.net //g' AdultA.m3u
+        sed -i 's/XXX/成人频道/' AdultA.m3u || true
+        sed -i 's/AdultIPTV.net //g' AdultA.m3u || true
 
         download "https://met.pages.dev/static/iptv/av.m3u" AdultB.m3u
         download "https://raw.githubusercontent.com/hfpiao/IPTV/refs/heads/main/Adult.m3u" AdultC.m3u
@@ -151,18 +160,25 @@ jobs:
         #--------------------------------------------------
         download "https://epg.112114.xyz/pp.xml" EPG.xml
 
-        echo "### 📺 IPTV 自動更新" > README.md
-        echo "- 更新時間：${{ steps.date.outputs.date }}" >> README.md
-        echo "- 已驗證各 M3U 檔案有效性" >> README.md
-        echo "- 來源：fanmingming、YanG-1989、WaykeYu、Guovin、adultiptv 等" >> README.md
-        echo "- 自動整合生成 IPTV.m3u 與 IPTV-all.m3u" >> README.md
+        cat > README.md <<EOF
+### 📺 IPTV 自動更新
+- 更新時間：${{ steps.date.outputs.date }}
+- 已驗證各 M3U 檔案有效性
+- 來源：fanmingming、YanG-1989、WaykeYu、Guovin、adultiptv 等
+- 自動整合生成 IPTV.m3u 與 IPTV-all.m3u
+EOF
 
         echo "=== ✅ 更新與驗證完成 ==="
 
-    - name: Commit and Push
+    - name: Commit and Push changes
+      shell: bash
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add -A
-        git diff --quiet && echo "No changes to commit." || git commit -am "${{ steps.date.outputs.date }}"
-        git push -f origin main
+        if ! git diff --quiet; then
+          git commit -am "📅 Update: ${{ steps.date.outputs.date }}"
+          git push -f origin main
+        else
+          echo "🟢 No changes to commit."
+        fi
