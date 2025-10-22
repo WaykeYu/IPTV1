@@ -28,7 +28,7 @@ jobs:
     - name: Update IPTV sources
       shell: bash
       run: |
-        set -euo pipefail
+        set -eo pipefail
         echo "=== 🚀 開始更新 IPTV 源 ==="
 
         #--------------------------------------------------
@@ -86,15 +86,19 @@ jobs:
         # 📺 央视源
         #--------------------------------------------------
         download "https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u" source.m3u
-        sed -n '/央视频道/,+1p' source.m3u > CCTV.m3u
-        clean_m3u CCTV.m3u
+        if grep -q '央视频道' source.m3u; then
+          sed -n '/央视频道/,+1p' source.m3u > CCTV.m3u
+          clean_m3u CCTV.m3u
+        else
+          echo "⚠️ 未找到央视频道"
+        fi
 
         #--------------------------------------------------
         # 🛰️ 卫视源
         #--------------------------------------------------
-        tmp1=$(mktemp)
-        tmp2=$(mktemp)
-        tmp3=$(mktemp)
+        tmp1=$(mktemp /tmp/tmpfile.XXXXXX)
+        tmp2=$(mktemp /tmp/tmpfile.XXXXXX)
+        tmp3=$(mktemp /tmp/tmpfile.XXXXXX)
         sed -n '/卫视频道/,+1p' source.m3u > "$tmp1"
         sed -n '/NewTV系列/,+1p' source.m3u > "$tmp2"
         sed -n '/超清频道/,+1p' source.m3u > "$tmp3"
@@ -131,13 +135,13 @@ jobs:
         rm -f GAT1.m3u GAT2.m3u GAT3.m3u GAT4.m3u GAT5.m3u GAT6.m3u GAT7.m3u
 
         #--------------------------------------------------
-        # 💎 4K 源
+        # 💎 4K 源（改為 fourk 命名）
         #--------------------------------------------------
-        download "https://raw.githubusercontent.com/YanG-1989/m3u/main/Gather.m3u" 4k_raw.m3u
-        sed -n '/4K/,+1p' 4k_raw.m3u > 4k.m3u
-        sed -n '/4k/,+1p' 4k_raw.m3u >> 4k.m3u
-        clean_m3u 4k.m3u
-        rm -f 4k_raw.m3u
+        download "https://raw.githubusercontent.com/YanG-1989/m3u/main/Gather.m3u" fourk_raw.m3u
+        sed -n '/4K/,+1p' fourk_raw.m3u > fourk.m3u
+        sed -n '/4k/,+1p' fourk_raw.m3u >> fourk.m3u
+        clean_m3u fourk.m3u
+        rm -f fourk_raw.m3u
 
         #--------------------------------------------------
         # 🧪 驗證各源檔案有效性
@@ -148,12 +152,12 @@ jobs:
         #--------------------------------------------------
         # 🔗 整合源（無成人）
         #--------------------------------------------------
-        combine_m3u IPTV.m3u CCTV.m3u CNTV.m3u GAT.m3u 4k.m3u
+        combine_m3u IPTV.m3u CCTV.m3u CNTV.m3u GAT.m3u fourk.m3u
 
         #--------------------------------------------------
         # 🔗 整合源（含成人）
         #--------------------------------------------------
-        combine_m3u IPTV-all.m3u CCTV.m3u CNTV.m3u GAT.m3u 4k.m3u Adult.m3u
+        combine_m3u IPTV-all.m3u CCTV.m3u CNTV.m3u GAT.m3u fourk.m3u Adult.m3u
 
         #--------------------------------------------------
         # 🗓️ 節目源與說明文件
@@ -178,7 +182,7 @@ EOF
         git add -A
         if ! git diff --quiet; then
           git commit -am "📅 Update: ${{ steps.date.outputs.date }}"
-          git push -f origin main
+          git push -f origin HEAD:${{ github.ref_name }}
         else
           echo "🟢 No changes to commit."
         fi
