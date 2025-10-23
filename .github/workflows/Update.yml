@@ -94,8 +94,11 @@ jobs:
         download "https://raw.githubusercontent.com/hfpiao/IPTV/refs/heads/main/Adult.m3u" AdultC.m3u
         download "https://raw.githubusercontent.com/yyqyu/mytv/refs/heads/main/Adult.m3u" AdultD.m3u
         download "https://raw.githubusercontent.com/WaykeYu/MyTV_tw/refs/heads/main/UBTV18.m3u" AdultE.m3u
-        combine_m3u Adult.m3u AdultA.m3u AdultB.m3u AdultC.m3u AdultD.m3u AdultE.m3u
-        rm -f AdultA.m3u AdultB.m3u AdultC.m3u AdultD.m3u AdultE.m3u
+        download "https://raw.githubusercontent.com/WaykeYu/verify-iptv/refs/heads/main/source/XstR.m3u" AdultF.m3u
+        download "https://raw.githubusercontent.com/WaykeYu/verify-iptv/refs/heads/main/source/%E5%9B%BD%E5%8C%BA%E8%80%81%E4%BC%A0%E5%AA%92.m3u" AdultG.m3u
+        download "https://raw.githubusercontent.com/WaykeYu/verify-iptv/refs/heads/main/source/%E6%9C%80%E5%A5%BD%E7%9A%8418%2B.m3u" AdultH.m3u
+        combine_m3u Adult.m3u AdultA.m3u AdultB.m3u AdultC.m3u AdultD.m3u AdultE.m3u AdultF.m3u AdultG.m3u AdultH.m3u
+        rm -f AdultA.m3u AdultB.m3u AdultC.m3u AdultD.m3u AdultE.m3u AdultF.m3u AdultG.m3u AdultH.m3u
         #--------------------------------------------------
         # 🇭🇰🇲🇴🇹🇼 港澳台源
         #--------------------------------------------------
@@ -106,8 +109,9 @@ jobs:
         download "https://iptv-org.github.io/iptv/countries/tw.m3u" GAT5.m3u
         download "https://raw.githubusercontent.com/WaykeYu/MyTV_tw/refs/heads/main/TW_switch.m3u" GAT6.m3u
         download "https://raw.githubusercontent.com/WaykeYu/verify-iptv/refs/heads/main/source/UBTV.m3u" GAT7.m3u
-        combine_m3u GAT.m3u GAT1.m3u GAT2.m3u GAT3.m3u GAT4.m3u GAT5.m3u GAT6.m3u GAT7.m3u
-        rm -f GAT1.m3u GAT2.m3u GAT3.m3u GAT4.m3u GAT5.m3u GAT6.m3u GAT7.m3u
+        download "https://raw.githubusercontent.com/WaykeYu/verify-iptv/refs/heads/main/source/me.m3u" GAT8.m3u
+        combine_m3u GAT.m3u GAT1.m3u GAT2.m3u GAT3.m3u GAT4.m3u GAT5.m3u GAT6.m3u GAT7.m3u GAT8.m3u
+        rm -f GAT1.m3u GAT2.m3u GAT3.m3u GAT4.m3u GAT5.m3u GAT6.m3u GAT7.m3u GAT8.m3u 
         #--------------------------------------------------
         # 💎 4K 源
         #--------------------------------------------------
