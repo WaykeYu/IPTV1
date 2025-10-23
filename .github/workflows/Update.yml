@@ -2,8 +2,8 @@ name: Update IPTV
 
 on:
   schedule:
-    - cron: '0 1 * * *'  # 每日更新
-  workflow_dispatch:  # 手動觸發
+    - cron: '0 1 * * *'  # 每日自動更新（UTC+8 對應早上 9:00）
+  workflow_dispatch:
 
 env:
   TZ: Asia/Shanghai
@@ -13,72 +13,67 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
+    - name: Checkout repository
       uses: actions/checkout@v4
-
-    # 如果不需要 Go 相關的操作，可以移除此步驟
-    # - name: Set up Go
-    #   uses: actions/setup-go@v5
-    #   with:
-    #     go-version: '1.19'
-
-    # 如果不需要快取，可以移除快取步驟
-    # - name: Cache Go modules
-    #   uses: actions/cache@v3
-    #   with:
-    #     path: |
-    #       ~/.cache/go-build
-    #       ~/go/pkg/mod
-    #     key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-    #     restore-keys: |
-    #       ${{ runner.os }}-go-
 
     - name: Get current date
       id: date
-      run: echo "date=$(date +'%Y-%m-%d %H:%M:%S CST')" >> $GITHUB_OUTPUT
+      run: echo "date=$(date '+%Y-%m-%d %H:%M:%S CST')" >> "$GITHUB_OUTPUT"
 
     - name: Update IPTV sources
+      shell: bash
       run: |
-        set -e  # 遇到錯誤時立刻停止
-
+        set -euo pipefail
         echo "=== 🚀 開始更新 IPTV 源 ==="
 
         #--------------------------------------------------
         # 🧩 通用函數
         #--------------------------------------------------
         download() {
-          url=$1
-          file=$2
+          local url="$1" file="$2"
           echo "↓ 下載: $url"
-          wget -q --timeout=30 "$url" -O "$file" || { echo "⚠️ 下載失敗: $url"; exit 1; }
+          # 增加重試機制，提高穩定性
+          for i in {1..3}; do
+            if wget -q --timeout=30 "$url" -O "$file"; then
+              return 0
+            fi
+            echo "⚠️ 第 $i 次下載失敗，重試中..."
+            sleep 3
+          done
+          echo "❌ 無法下載: $url"
+          return 1
         }
+
         clean_m3u() {
-          file=$1
-          [ -f "$file" ] && sed -i '/^\s*$/d' "$file"
-          [ -f "$file" ] && sed -i '1i #EXTM3U' "$file"
+          local file="$1"
+          [[ -f "$file" ]] || return
+          sed -i '/^\s*$/d' "$file"
+          sed -i '1s/^/#EXTM3U\n/' "$file"
         }
+
         combine_m3u() {
-          output=$1
-          shift
+          local output="$1"; shift
           echo "#EXTM3U" > "$output"
           for f in "$@"; do
-            [ -f "$f" ] && tail -n +2 "$f" >> "$output"  # 去除每個源文件的 #EXTM3U 標頭
+            [[ -f "$f" ]] && tail -n +2 "$f" >> "$output"
           done
           sed -i '/^\s*$/d' "$output"
         }
+
         validate_m3u() {
-          file=$1
-          if [ -f "$file" ]; then
-            info_count=$(grep -c '^#EXTINF' "$file" || true)
-            url_count=$(grep -Ec '^(http|rtsp)' "$file" || true)
-            if [ "$info_count" -lt 1 ] || [ "$url_count" -lt 1 ]; then
-              echo "⚠️ 驗證失敗：$file（EXTINF:$info_count / URL:$url_count） → 已刪除"
-              rm -f "$file"
-            else
-              echo "✅ 驗證通過：$file（EXTINF:$info_count / URL:$url_count）"
-            fi
+          local file="$1"
+          [[ -f "$file" ]] || return
+          local info_count url_count
+          info_count=$(grep -c '^#EXTINF' "$file" || true)
+          url_count=$(grep -Ec '^(http|rtsp)' "$file" || true)
+          if (( info_count < 1 || url_count < 1 )); then
+            echo "⚠️ 驗證失敗：$file（EXTINF:$info_count / URL:$url_count） → 已刪除"
+            rm -f "$file"
+          else
+            echo "✅ 驗證通過：$file（EXTINF:$info_count / URL:$url_count）"
           fi
         }
+
         validate_all() {
           for f in *.m3u; do
             validate_m3u "$f"
@@ -89,50 +84,57 @@ jobs:
         # 📺 央视源
         #--------------------------------------------------
         download "https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u" source.m3u
-        sed -n '/央视频道/,+1p' source.m3u > CCTV.m3u
+        sed -n '/央视频道/,+1p' source.m3u > CCTV.m3u || true
         clean_m3u CCTV.m3u
 
         #--------------------------------------------------
         # 🛰️ 卫视源
         #--------------------------------------------------
-        sed -n '/卫视频道/,+1p' source.m3u > CNTV1.m3u
-        sed -n '/NewTV系列/,+1p' source.m3u > CNTV2.m3u
-        sed -n '/超清频道/,+1p' source.m3u > CNTV3.m3u
+        sed -n '/卫视频道/,+1p' source.m3u > CNTV1.m3u || true
+        sed -n '/NewTV系列/,+1p' source.m3u > CNTV2.m3u || true
+        sed -n '/超清频道/,+1p' source.m3u > CNTV3.m3u || true
         combine_m3u CNTV.m3u CNTV1.m3u CNTV2.m3u CNTV3.m3u
-        rm -f CNTV1.m3u CNTV2.m3u CNTV3.m3u
+        rm -f CNTV1.m3u CNTV2.m3u CNTV3.m3u source.m3u
 
         #--------------------------------------------------
-        # 🔞 成人源
+        # 🔞 成人源（可設條件選擇是否保留）
         #--------------------------------------------------
-        download "http://adultiptv.net/chs.m3u" AdultA.m3u
-        sed -i 's/XXX/成人频道/' AdultA.m3u
-        sed -i 's/AdultIPTV.net //g' AdultA.m3u
-        download "https://met.pages.dev/static/iptv/av.m3u" AdultB.m3u
-        download "https://raw.githubusercontent.com/hfpiao/IPTV/refs/heads/main/Adult.m3u" AdultC.m3u
-        download "https://raw.githubusercontent.com/yyqyu/mytv/refs/heads/main/Adult.m3u" AdultD.m3u
-        download "https://raw.githubusercontent.com/WaykeYu/MyTV_tw/refs/heads/main/UBTV18.m3u" AdultE.m3u
-        combine_m3u Adult.m3u AdultA.m3u AdultB.m3u AdultC.m3u AdultD.m3u AdultE.m3u
-        rm -f AdultA.m3u AdultB.m3u AdultC.m3u AdultD.m3u AdultE.m3u
+        for src in \
+          "http://adultiptv.net/chs.m3u" \
+          "https://met.pages.dev/static/iptv/av.m3u" \
+          "https://raw.githubusercontent.com/hfpiao/IPTV/refs/heads/main/Adult.m3u" \
+          "https://raw.githubusercontent.com/yyqyu/mytv/refs/heads/main/Adult.m3u" \
+          "https://raw.githubusercontent.com/WaykeYu/MyTV_tw/refs/heads/main/UBTV18.m3u"
+        do
+          fname="$(basename "$src" | sed 's/\.m3u//')"
+          download "$src" "${fname}.m3u" || true
+        done
+        combine_m3u Adult.m3u *.m3u
+        sed -i 's/XXX/成人频道/g; s/AdultIPTV.net //g' Adult.m3u || true
 
         #--------------------------------------------------
         # 🇭🇰🇲🇴🇹🇼 港澳台源
         #--------------------------------------------------
-        download "https://raw.githubusercontent.com/Mitchll1214/m3u/main/港澳台.m3u" GAT1.m3u
-        download "https://cdn.jsdelivr.net/gh/Guovin/iptv-api@gd/output/result.m3u" GAT2.m3u
-        download "https://ghp.ci/https://raw.githubusercontent.com/yuanzl77/IPTV/main/live.m3u" GAT3.m3u
-        download "https://epg.pw/test_channels_taiwan.m3u" GAT4.m3u
-        download "https://iptv-org.github.io/iptv/countries/tw.m3u" GAT5.m3u
-        download "https://raw.githubusercontent.com/WaykeYu/MyTV_tw/refs/heads/main/TW_switch.m3u" GAT6.m3u
-        download "https://raw.githubusercontent.com/WaykeYu/verify-iptv/refs/heads/main/source/UBTV.m3u" GAT7.m3u
-        combine_m3u GAT.m3u GAT1.m3u GAT2.m3u GAT3.m3u GAT4.m3u GAT5.m3u GAT6.m3u GAT7.m3u
-        rm -f GAT1.m3u GAT2.m3u GAT3.m3u GAT4.m3u GAT5.m3u GAT6.m3u GAT7.m3u
+        urls=(
+          "https://raw.githubusercontent.com/Mitchll1214/m3u/main/港澳台.m3u"
+          "https://cdn.jsdelivr.net/gh/Guovin/iptv-api@gd/output/result.m3u"
+          "https://ghp.ci/https://raw.githubusercontent.com/yuanzl77/IPTV/main/live.m3u"
+          "https://epg.pw/test_channels_taiwan.m3u"
+          "https://iptv-org.github.io/iptv/countries/tw.m3u"
+          "https://raw.githubusercontent.com/WaykeYu/MyTV_tw/refs/heads/main/TW_switch.m3u"
+          "https://raw.githubusercontent.com/WaykeYu/verify-iptv/refs/heads/main/source/UBTV.m3u"
+        )
+        for url in "${urls[@]}"; do
+          download "$url" "$(basename "$url")" || true
+        done
+        combine_m3u GAT.m3u *.m3u
+        rm -f 港澳台.m3u result.m3u live.m3u test_channels_taiwan.m3u tw.m3u TW_switch.m3u UBTV.m3u
 
         #--------------------------------------------------
         # 💎 4K 源
         #--------------------------------------------------
         download "https://raw.githubusercontent.com/YanG-1989/m3u/main/Gather.m3u" 4k_raw.m3u
-        sed -n '/4K/,+1p' 4k_raw.m3u > 4k.m3u
-        sed -n '/4k/,+1p' 4k_raw.m3u >> 4k.m3u
+        grep -iA1 "4K" 4k_raw.m3u > 4k.m3u || true
         clean_m3u 4k.m3u
         rm -f 4k_raw.m3u
 
@@ -143,19 +145,25 @@ jobs:
         validate_all
 
         #--------------------------------------------------
-        # 🔗 整合源（無成人）
+        # 🔗 整合源
         #--------------------------------------------------
         combine_m3u IPTV.m3u CCTV.m3u CNTV.m3u GAT.m3u 4k.m3u
-
-        #--------------------------------------------------
-        # 🔗 整合源（含成人）
-        #--------------------------------------------------
         combine_m3u IPTV-all.m3u CCTV.m3u CNTV.m3u GAT.m3u 4k.m3u Adult.m3u
 
         #--------------------------------------------------
         # 🗓️ 節目源與說明文件
         #--------------------------------------------------
-        download "https://epg.112114.xyz/pp.xml" EPG.xml
-        echo "### 📺 IPTV 自動更新" > README.md
-        echo "- 更新時間：${{ steps.date.outputs.date }}" >> README.md
-        echo
+        download "https://epg.112114.xyz/pp.xml" EPG.xml || true
+        {
+          echo "### 📺 IPTV 自動更新"
+          echo "- 更新時間：${{ steps.date.outputs.date }}"
+          echo "- 自動生成來源：https://github.com/${{ github.repository }}"
+        } > README.md
+
+    - name: Commit and push changes
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add .
+        git commit -m "🔄 Update IPTV sources: ${{ steps.date.outputs.date }}" || echo "No changes to commit"
+        git push
